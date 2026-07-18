@@ -39,7 +39,7 @@ export default function AboutPage() {
           </div>
 
           <div className="cards">
-            <Link href="/work" className="card r is-featured">
+            <div className="card r is-featured">
               <div className="card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <circle cx="12" cy="4" r="2" />
@@ -57,14 +57,9 @@ export default function AboutPage() {
                   hallucination mitigation
                 </p>
               </div>
-              <div className="card-aff" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12l4 4 10-10" />
-                </svg>
-              </div>
-            </Link>
+            </div>
 
-            <Link href="/work" className="card r">
+            <div className="card r">
               <div className="card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <ellipse cx="12" cy="5" rx="8" ry="2.5" />
@@ -82,14 +77,9 @@ export default function AboutPage() {
                   lineage, lakehouse · Databricks, Snowflake, Unity Catalog
                 </p>
               </div>
-              <div className="card-aff" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </div>
-            </Link>
+            </div>
 
-            <Link href="/work" className="card r">
+            <div className="card r">
               <div className="card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M4 19V5M4 19h16" />
@@ -105,14 +95,9 @@ export default function AboutPage() {
                   consulting, pricing &amp; packaging for regulated procurement
                 </p>
               </div>
-              <div className="card-aff" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </div>
-            </Link>
+            </div>
 
-            <a href="#contact" className="card r">
+            <div className="card r">
               <div className="card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <circle cx="9" cy="8" r="3" />
@@ -130,12 +115,7 @@ export default function AboutPage() {
                   thinking · long-running 1:1 mentorship and team enablement
                 </p>
               </div>
-              <div className="card-aff" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </div>
-            </a>
+            </div>
           </div>
         </section>
       </section>

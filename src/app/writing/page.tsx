@@ -26,6 +26,7 @@ export default function WritingPage() {
 
       <section className="section wrap" style={{ paddingTop: 0 }}>
         <div className="articles">
+
           <a href={ARTICLES_URL} target="_blank" rel="noopener" className="article r">
             <div className="meta">
               <span>Essay</span>
@@ -61,6 +62,96 @@ export default function WritingPage() {
               what I wish I&apos;d answered better the first time around.
             </p>
             <div className="read">Read →</div>
+          </a>
+        </div>
+      </section>
+
+      <section className="section wrap" id="resources">
+        <div className="sec-head r">
+          <div>
+            <div className="sec-num">05 — For aspiring PMs</div>
+            <h2 className="sec-title">
+              Notes for the <em>folks coming up.</em>
+            </h2>
+          </div>
+          <p className="sec-sub">
+            Honest, opinionated guides I wish I&apos;d had when I was making
+            the jump. Not inspirational — practical. Engineers pivoting in,
+            this one&apos;s mostly for you.
+          </p>
+        </div>
+
+        <div className="res-list r">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=surya.pandey62@gmail.com&su=Resource%20request%3A%20Regulated-industry%20PM"
+            target="_blank"
+            rel="noopener"
+            className="res"
+          >
+            <div className="res-num">→ 01</div>
+            <div>
+              <h3 className="res-title">Breaking into regulated-industry PM</h3>
+              <p className="res-desc">
+                Why banking and insurance PM roles look intimidating from the
+                outside, why they&apos;re actually a great place to learn,
+                and what to study before the interview.
+              </p>
+            </div>
+            <div className="res-arr" aria-hidden="true">↗</div>
+          </a>
+
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=surya.pandey62@gmail.com&su=Resource%20request%3A%20AI%20PM%20fundamentals"
+            target="_blank"
+            rel="noopener"
+            className="res"
+          >
+            <div className="res-num">→ 02</div>
+            <div>
+              <h3 className="res-title">AI PM fundamentals, without the hype</h3>
+              <p className="res-desc">
+                RAG vs fine-tuning vs agents — when each is actually the
+                right call. Evaluation, guardrails, and the unglamorous data
+                work that decides whether your AI ships.
+              </p>
+            </div>
+            <div className="res-arr" aria-hidden="true">↗</div>
+          </a>
+
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=surya.pandey62@gmail.com&su=Resource%20request%3A%20Your%20first%20data%20product"
+            target="_blank"
+            rel="noopener"
+            className="res"
+          >
+            <div className="res-num">→ 03</div>
+            <div>
+              <h3 className="res-title">Your first data product</h3>
+              <p className="res-desc">
+                From &quot;we have a dashboard&quot; to &quot;we have a
+                product.&quot; Pricing, packaging, ownership, and the
+                politics of who gets to define a metric.
+              </p>
+            </div>
+            <div className="res-arr" aria-hidden="true">↗</div>
+          </a>
+
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=surya.pandey62@gmail.com&su=Resource%20request%3A%20Engineer%20to%20PM"
+            target="_blank"
+            rel="noopener"
+            className="res"
+          >
+            <div className="res-num">→ 04</div>
+            <div>
+              <h3 className="res-title">Engineer → PM, without losing your edge</h3>
+              <p className="res-desc">
+                What to keep, what to let go of, and how to translate ten
+                years of SDLC instincts into product judgement that earns
+                trust quickly.
+              </p>
+            </div>
+            <div className="res-arr" aria-hidden="true">↗</div>
           </a>
         </div>
       </section>
