@@ -67,14 +67,11 @@ export default function WritingPage() {
       </section>
 
       <section className="section wrap" id="resources">
-        <div className="sec-head r">
-          <div>
-            <div className="sec-num">05 — For aspiring PMs</div>
-            <h2 className="sec-title">
-              Notes for the <em>folks coming up.</em>
-            </h2>
-          </div>
-          <p className="sec-sub">
+        <div className="page-hero" style={{ paddingTop: 0, paddingBottom: "clamp(28px,4vw,48px)" }}>
+          <h2 className="sec-title">
+            Notes for the <em>folks coming up.</em>
+          </h2>
+          <p className="ph-sub" style={{ marginTop: 16 }}>
             Honest, opinionated guides I wish I&apos;d had when I was making
             the jump. Not inspirational — practical. Engineers pivoting in,
             this one&apos;s mostly for you.

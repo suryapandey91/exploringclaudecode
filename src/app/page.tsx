@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Ticker from "@/components/Ticker";
 
@@ -85,15 +84,6 @@ export default function HomePage() {
                 surya.pandey62@gmail.com
               </a>
             </div>
-          </div>
-          <div className="portrait r r-d3" aria-label="Portrait of Surya">
-            <Image
-              src="/headshot.jpg"
-              alt="Surya Prakash Pandey"
-              fill
-              priority
-              sizes="360px"
-            />
           </div>
         </div>
 
