@@ -13,7 +13,9 @@ export default function FooterCta() {
         </p>
         <div className="cta-actions r r-d2">
           <a
-            href="mailto:surya.pandey62@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=surya.pandey62@gmail.com"
+            target="_blank"
+            rel="noopener"
             className="btn btn-primary"
           >
             Email me <span className="arr">↗</span>
