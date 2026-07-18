@@ -95,14 +95,10 @@ export default function AvatarChat() {
     convoRef.current.push({ role: "user", content: text });
 
     try {
-      const messages: ChatMessage[] = [
-        { role: "assistant", content: OPENING },
-        ...convoRef.current,
-      ];
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages }),
+        body: JSON.stringify({ messages: convoRef.current }),
       });
       if (!res.ok) throw new Error("request failed");
       const data = await res.json();

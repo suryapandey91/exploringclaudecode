@@ -134,9 +134,10 @@ export async function POST(req: Request) {
       reply: text || "Sorry — I didn't catch that. Could you rephrase?",
     });
   } catch (err) {
-    console.error("Chat route error:", err);
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("Chat route error:", msg);
     return Response.json(
-      { error: "I'm having trouble responding right now." },
+      { error: "I'm having trouble responding right now.", detail: msg },
       { status: 502 }
     );
   }
