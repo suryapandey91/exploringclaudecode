@@ -32,6 +32,21 @@ export default function HomePage() {
           Gurgaon, India
         </div>
 
+        <div className="logos r">
+          <div className="logos-inner">
+            <div className="logos-lbl">— Previously at</div>
+            <div className="logos-row">
+              <span className="logo-mark">Gartner</span>
+              <span className="logo-mark">
+                UnitedHealth<span className="sub">Optum</span>
+              </span>
+              <span className="logo-mark">Xebia</span>
+              <span className="logo-mark">Tech Mahindra</span>
+              <span className="logo-mark">Ericsson</span>
+            </div>
+          </div>
+        </div>
+
         <div className="hero-row">
           <div className="r r-d3">
             <div className="hero-intro">
@@ -83,21 +98,6 @@ export default function HomePage() {
                 </svg>
                 surya.pandey62@gmail.com
               </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="logos r">
-          <div className="logos-inner">
-            <div className="logos-lbl">— Previously at</div>
-            <div className="logos-row">
-              <span className="logo-mark">Gartner</span>
-              <span className="logo-mark">
-                UnitedHealth<span className="sub">Optum</span>
-              </span>
-              <span className="logo-mark">Xebia</span>
-              <span className="logo-mark">Tech Mahindra</span>
-              <span className="logo-mark">Ericsson</span>
             </div>
           </div>
         </div>

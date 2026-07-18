@@ -174,8 +174,10 @@ body::before{
 
 /* Logos strip */
 .logos{
-  padding: clamp(40px,6vw,72px) 0 clamp(20px,3vw,36px);
+  padding: clamp(28px,4vw,48px) 0;
   border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  margin-bottom: clamp(28px,4vw,48px);
 }
 .logos-inner{
   display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;
