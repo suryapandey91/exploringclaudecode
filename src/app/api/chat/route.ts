@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export const runtime = "nodejs";
 
@@ -104,39 +104,37 @@ export async function POST(req: Request) {
     return Response.json({ error: "Invalid messages." }, { status: 400 });
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
   if (!apiKey) {
     return Response.json(
-      { error: "Server is not configured with an ANTHROPIC_API_KEY." },
+      { error: "Server is not configured with a GOOGLE_GENERATIVE_AI_API_KEY." },
       { status: 500 }
     );
   }
 
-  const client = new Anthropic({ apiKey });
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash",
+    systemInstruction: SYSTEM_PROMPT,
+  });
+
+  // Convert messages to Gemini format (roles: "user" | "model")
+  const history = messages.slice(0, -1).map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }));
+  const lastMessage = messages[messages.length - 1].content;
 
   try {
-    const response = await client.messages.create({
-      model: "claude-opus-4-8",
-      max_tokens: 1024,
-      system: SYSTEM_PROMPT,
-      messages,
-    });
-
-    const text = response.content
-      .filter((block): block is Anthropic.TextBlock => block.type === "text")
-      .map((block) => block.text)
-      .join("\n")
-      .trim();
+    const chat = model.startChat({ history });
+    const result = await chat.sendMessage(lastMessage);
+    const text = result.response.text().trim();
 
     return Response.json({
       reply: text || "Sorry — I didn't catch that. Could you rephrase?",
     });
   } catch (err) {
-    if (err instanceof Anthropic.APIError) {
-      console.error("Anthropic API error:", err.status, err.message);
-    } else {
-      console.error("Chat route error:", err);
-    }
+    console.error("Chat route error:", err);
     return Response.json(
       { error: "I'm having trouble responding right now." },
       { status: 502 }
