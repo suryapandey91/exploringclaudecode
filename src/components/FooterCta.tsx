@@ -26,6 +26,14 @@ export default function FooterCta() {
           >
             Book a 30-min call <span className="arr">→</span>
           </a>
+          <a
+            href="https://wa.me/919953827229"
+            target="_blank"
+            rel="noopener"
+            className="btn btn-ghost"
+          >
+            WhatsApp <span className="arr">↗</span>
+          </a>
         </div>
       </div>
     </section>
