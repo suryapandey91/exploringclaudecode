@@ -48,8 +48,9 @@ export default function HomePage() {
                 Today I&apos;m Principal Consultant for Data and AI Products
                 at EXL, building an agentic data management platform for
                 financial services and insurance. Before that, I owned
-                $19.5M+ in flagship data products at Gartner and launched a
-                multi-agent research platform used by 3,000+ analysts.
+                multiple B2B and data products at Gartner and launched a
+                multi-agent research platform used by 3,000+ analysts in my
+                last stint.
               </p>
               <p>
                 I&apos;ve also helped <em>50+ product folks</em> grow into
