@@ -138,7 +138,7 @@ body::before{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
   font-family:var(--body);font-size:clamp(17px,1.55vw,21px);
   color:var(--text);line-height:1.4;max-width:880px;
-  margin-top:6px;
+  margin-top:clamp(28px,4vw,48px);
 }
 .hero-pos .sep{color:var(--accent);font-weight:500;opacity:0.7;font-size:0.85em;transform:translateY(-1px)}
 .hero-pos strong{font-weight:500;color:var(--text);border-bottom:1px solid var(--accent-soft);padding-bottom:1px}
