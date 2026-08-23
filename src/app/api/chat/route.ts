@@ -6,13 +6,22 @@ export async function GET() {
     return Response.json({ ok: false, error: "GOOGLE_GENERATIVE_AI_API_KEY is not set in environment" }, { status: 500 });
   }
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
-    const body = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      return Response.json({ ok: false, status: res.status, error: "Gemini API rejected the key", detail: body }, { status: 502 });
-    }
-    const models = (body.models || []).map((m: { name: string }) => m.name);
-    return Response.json({ ok: true, keyPrefix: key.slice(0, 8) + "...", geminiStatus: res.status, availableModels: models });
+    const genRes = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: "Say hi in one word." }] }],
+        }),
+      }
+    );
+    const genBody = await genRes.json().catch(() => ({}));
+    return Response.json({
+      generateContentStatus: genRes.status,
+      generateContentOk: genRes.ok,
+      generateContentResponse: genBody,
+    });
   } catch (err) {
     return Response.json({ ok: false, error: String(err) }, { status: 502 });
   }
