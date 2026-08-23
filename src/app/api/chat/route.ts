@@ -1,5 +1,3 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
 export const runtime = "nodejs";
 
 export async function GET() {
@@ -130,24 +128,35 @@ export async function POST(req: Request) {
     );
   }
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
-    systemInstruction: SYSTEM_PROMPT,
-  });
-
-  // Convert messages to Gemini format (roles: "user" | "model")
-  const history = messages.slice(0, -1).map((m) => ({
+  const contents = messages.map((m) => ({
     role: m.role === "assistant" ? "model" : "user",
     parts: [{ text: m.content }],
   }));
-  const lastMessage = messages[messages.length - 1].content;
 
   try {
-    const chat = model.startChat({ history });
-    const result = await chat.sendMessage(lastMessage);
-    const text = result.response.text().trim();
+    const geminiRes = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents,
+        }),
+      }
+    );
 
+    const data = await geminiRes.json();
+
+    if (!geminiRes.ok) {
+      console.error("Gemini error:", JSON.stringify(data));
+      return Response.json(
+        { error: "I'm having trouble responding right now.", detail: data },
+        { status: 502 }
+      );
+    }
+
+    const text: string = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? "";
     return Response.json({
       reply: text || "Sorry — I didn't catch that. Could you rephrase?",
     });
