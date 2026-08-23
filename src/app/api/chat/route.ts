@@ -2,6 +2,24 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export const runtime = "nodejs";
 
+export async function GET() {
+  const key = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+  if (!key) {
+    return Response.json({ ok: false, error: "GOOGLE_GENERATIVE_AI_API_KEY is not set in environment" }, { status: 500 });
+  }
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      return Response.json({ ok: false, status: res.status, error: "Gemini API rejected the key", detail: body }, { status: 502 });
+    }
+    const models = (body.models || []).map((m: { name: string }) => m.name);
+    return Response.json({ ok: true, keyPrefix: key.slice(0, 8) + "...", geminiStatus: res.status, availableModels: models });
+  } catch (err) {
+    return Response.json({ ok: false, error: String(err) }, { status: 502 });
+  }
+}
+
 const SYSTEM_PROMPT = `You are Surya Prakash Pandey's personal AI avatar on their professional website. You represent Surya authentically and help visitors understand who they are, what they do, and whether there's a fit for collaboration, hiring, or mentorship.
 
 You ONLY answer using the information explicitly provided below. You do not speculate, infer, or fabricate details. If a question falls outside what's covered, respond warmly and redirect to connecting directly via LinkedIn (https://www.linkedin.com/in/surya-prakash-pandey/).
